@@ -1,0 +1,146 @@
+.contact-page {
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin-top: 70px;
+}
+
+/* Get in Touch Section */
+.get-in-touch {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.get-in-touch h1 {
+  font-size: 40px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.get-in-touch p {
+  font-size: 20px;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Info and Form Section */
+.map-and-form {
+  display: flex;
+  gap: 40px; /* Space between contact info and form */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contact Info Container */
+.contact-info-container {
+  flex: 1; /* Take up 50% of the space */
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.contact-info-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-info-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-icon {
+  font-size: 24px;
+  color: darkblue; /* Icon color */
+}
+
+.contact-item h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.contact-item p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Form Container */
+.form-container {
+  flex: 1; /* Take up 50% of the space */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-container button {
+  background-color: darkblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: rgb(19, 106, 188);
+  color: white;
+  border: bold darkblue;
+}

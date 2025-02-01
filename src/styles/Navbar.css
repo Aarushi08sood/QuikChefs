@@ -1,0 +1,108 @@
+.navbar {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 2px 50px;
+  background: transparent;
+  position: fixed; /* Keep navbar fixed at the top */
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+  gap:0px;
+}
+
+.navbar-scrolled {
+  background: black; /* Change background color to black when scrolled */
+}
+
+/* Styles for the About page */
+.navbar-about {
+  background: white; /* White background for the About page */
+  border-bottom: 1px solid black; /* Black border for the About page */
+}
+
+.navbar-about .nav-links li a {
+  color: black; /* Black text for links on the About page */
+}
+
+.navbar-about .btn-outline {
+  border-color: black; /* Black border for outline button on the About page */
+  color: black; /* Black text for outline button on the About page */
+}
+
+.navbar-about .btn-primary {
+  background: black; /* Black background for primary button on the About page */
+  color: white; /* White text for primary button on the About page */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-right: auto;
+  
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Adjust gap between links */
+  text-align: center;
+  margin: 0 auto; /* Center the links */
+  padding: 0;
+  position: absolute; /* Position links absolutely */
+  left: 50%; /* Move links to the center */
+  transform: translateX(-50%); /* Center links precisely */
+  
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 25px;
+  padding: 10px 20px;
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.navbar-scrolled .nav-links li a {
+  color: white; /* Ensure links remain white when navbar is scrolled */
+}
+
+.buttons {
+  padding-top: 10px;
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  background: transparent;
+  padding: 15px 20px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for button */
+}
+
+.btn-primary {
+  background: white;
+  color: black;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for button */
+}
+
+.navbar-scrolled .btn-outline {
+  border-color: white; /* Ensure border color remains white when scrolled */
+  color: white; /* Ensure text color remains white when scrolled */
+}
+
+.navbar-scrolled .btn-primary {
+  background: white; /* Ensure button background remains white when scrolled */
+  color: black; /* Ensure text color remains black when scrolled */
+}

@@ -1,0 +1,30 @@
+.terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 100px;
+  }
+  
+  .terms-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 48px;
+  }
+  
+  .terms-container h2 {
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .terms-container p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .terms-container section {
+    margin-bottom: 30px;
+  }

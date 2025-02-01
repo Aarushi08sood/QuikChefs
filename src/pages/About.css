@@ -1,0 +1,117 @@
+.about-page {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Culinary Mission Section */
+  .culinary-mission {
+    margin-bottom: 40px;
+  }
+  
+  .culinary-mission h1 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .culinary-mission p {
+    font-size: 18px;
+    color: black;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Meet Our Team Section */
+  .meet-our-team {
+    margin-bottom: 40px;
+  }
+  
+  .meet-our-team h2 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 10px;
+  }
+  
+  .meet-our-team p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .team-member h3 {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 5px;
+  }
+  
+  .team-member .role {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .team-member p {
+    font-size: 14px;
+    color: black;
+    line-height: 1.5;
+  }
+  
+  /* Join Us Section */
+  .join-us {
+    margin-bottom: 40px;
+  }
+  
+  .join-us h2 {
+    font-size: 35px;
+    color:black;
+    margin-bottom: 10px;
+  }
+  
+  .join-us p {
+    font-size: 19px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .join-button {
+    background-color: white;
+    color: darkblue;
+    padding: 10px 20px;
+    border:bold darkblue;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .join-button:hover {
+    background-color: darkblue;
+    color:white;
+  }

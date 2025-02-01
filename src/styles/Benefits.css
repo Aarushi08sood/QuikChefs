@@ -1,0 +1,50 @@
+
+.service-section {
+    background-color:rgb(252, 241, 229);
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    width: calc(33.33% - 14px); /* Each card takes one-third of the container width minus the gap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .service-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .service-section p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .learn-more-btn {
+    background-color: #fff;
+    border: 2px solid gray;
+    color:black;
+    
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    float: left;
+     /* Align button to the right */
+  }
+  
+  .learn-more-btn:hover {
+    background-color:black;
+    color:white;
+  }

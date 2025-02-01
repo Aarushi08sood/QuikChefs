@@ -1,0 +1,123 @@
+/* General Styles */
+.portfolio-page {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: black;
+    padding: 20px;
+  }
+  
+  .culinary-expertise {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+  }
+  
+  .culinary-expertise h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .culinary-expertise p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    /* text-align: left;
+    margin-left: 5px; */
+  }
+  
+  /* Showcasing Culinary Excellence Section */
+  .showcase-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .showcase-section h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .showcase-section p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  
+  /* Project Cards */
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .project-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-image {
+    width: 70%;
+    height:80%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-text {
+    width: 60%;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .card-text h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+  .card-text p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .project-details {
+    margin-bottom: 20px;
+  }
+  
+  .project-details p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* View Details Button */
+  .view-details-btn {
+    background-color: white;
+    color:darkblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  

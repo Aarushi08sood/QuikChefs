@@ -1,0 +1,128 @@
+/* General Styles */
+.luxury-wedding-page {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .full-width-image {
+    width: 100%;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  
+  .full-width-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Main Section (Hero + Client Details) */
+  .main-section {
+    display: flex;
+    gap: 0px;
+    align-items: flex-start; /* Align items to the top */
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: left;
+    padding: 60px 20px;
+    margin: 20px 0;
+    margin-right: 50px; /* Add space between Hero and Client Details */
+    flex: 2; /* Allow Hero Section to take more space */
+    background-color: transparent; /* Remove background color */
+    box-shadow: none; /* Remove box shadow */
+  }
+  
+  .hero-section h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    font-size: 28px;
+    color:black;
+    max-width: 800px;
+    margin: 0 0 20px; /* Remove auto margin for left alignment */
+  }
+  
+  .highlights ul {
+    list-style-type: circle;
+    padding-left: 0px; /* Add padding for the bullet points */
+    margin: 0;
+  }
+  
+  .highlights ul li {
+    font-size: 24px;
+    color:black;
+    margin-bottom: 10px;
+  }
+  
+  /* Client Details Section */
+  .client-details {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    padding: 60px 20px;
+    margin: 20px 0;
+    margin-left: 0px;
+    margin-right: 20px;
+    flex: 1; /* Allow Client Details to take less space */
+    background-color: transparent; /* Remove background color */
+    box-shadow: none; /* Remove box shadow */
+    margin-bottom: 0px;
+  }
+  
+  .detail-row {
+    display: flex;
+    gap: 50px; /* Add space between details in the same row */
+    margin-bottom: 100px; /* Add space between rows */
+  }
+  
+  .detail-row .detail {
+    text-align: left; /* Align text to the left */
+  }
+  
+  .detail-row strong {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .detail-row p {
+    font-size: 24px;
+    color: black;
+  }
+  
+  /* Project Description Section */
+  .project-description {
+    padding: 0px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Remove background color */
+    box-shadow: none;
+    display: flex;
+    gap:10px;
+  }
+  
+  .project-description h2 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: auto;
+    margin-top: 0px;
+  }
+  
+  .project-description p {
+    font-size: 22px;
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: 100px;;
+  }
+  
+  
+  

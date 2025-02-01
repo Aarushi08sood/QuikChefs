@@ -1,0 +1,37 @@
+.explore-services {
+    padding: 40px 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .heading-and-para {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+  
+  .heading-and-para h1 {
+    font-size: 2.5rem;
+    color: #333;
+    padding-left: 30px;
+    text-align: left;
+    width: 40%; /* Adjust width as needed */
+  }
+  
+  .heading-and-para p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: left;
+    width: 50%; /* Adjust width as needed */
+  }
+  
+  .service-sections {
+    display: flex;
+   margin-left: 20px;
+   margin-right: 20px;
+    gap: 2px;
+    justify-content: space-between;
+  }

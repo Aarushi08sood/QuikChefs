@@ -1,0 +1,56 @@
+.chef-staffing {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding-right: 40px;
+    align-items: right;
+  }
+  
+  .text-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .text-content p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .text-content ul {
+    list-style-type:circle;
+    padding-left: 0px;
+    margin: 0;
+  }
+  
+  .text-content ul li {
+    
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .image-content {
+    flex: 1;
+    text-align: left;
+    align-items: left;
+  }
+  
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
