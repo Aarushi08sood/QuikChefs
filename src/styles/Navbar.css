@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   padding: 2px 50px;
   background: transparent;
@@ -11,7 +11,8 @@
   width: 100%;
   box-sizing: border-box;
   transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
-  gap:0px;
+  gap: 0px;
+  overflow: hidden; /* Prevent overflow */
 }
 
 .navbar-scrolled {
@@ -43,7 +44,6 @@
   font-weight: bold;
   color: white;
   margin-right: auto;
-  
 }
 
 .nav-links {
@@ -53,10 +53,15 @@
   text-align: center;
   margin: 0 auto; /* Center the links */
   padding: 0;
-  position: absolute; /* Position links absolutely */
+  position: static; /* Position links absolutely */
   left: 50%; /* Move links to the center */
-  transform: translateX(-50%); /* Center links precisely */
-  
+  transform: none; /* Center links precisely */
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.nav-links li {
+  position: relative; /* Add relative positioning to list items */
 }
 
 .nav-links li a {
@@ -65,7 +70,12 @@
   font-weight: 700;
   font-size: 25px;
   padding: 10px 20px;
-  transition: color 0.3s ease; /* Smooth transition for link color */
+  transition: color 0.3s ease;
+  display: inline-block; /* Smooth transition for link color */
+}
+
+.nav-links li a:hover {
+  color:gray; /* Red on hover */
 }
 
 .navbar-scrolled .nav-links li a {
@@ -105,4 +115,18 @@
 .navbar-scrolled .btn-primary {
   background: white; /* Ensure button background remains white when scrolled */
   color: black; /* Ensure text color remains black when scrolled */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+  .nav-links li a {
+    font-size: 20px; /* Reduce font size for smaller screens */
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+  .navbar {
+    padding: 2px 20px; /* Reduce padding for smaller screens */
+  }
 }
