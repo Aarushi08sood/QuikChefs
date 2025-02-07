@@ -30,7 +30,8 @@
     position: relative;
     max-width: 700px;
 
-    z-index: 2; /* Keep text above the overlay */
+    z-index: 2;
+     /* Keep text above the overlay */
 }
 
 
@@ -38,20 +39,15 @@
     font-size: 58px;
     font-weight: 700;
     text-transform: capitalize;
-    line-height: 1.2;
+    line-height: 1.19;
     margin-bottom: 15px;
+    outline: 1px solid transparent;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
   
 }
 
-.hero-content h1 span {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-}
 
-.hero-content .underline {
-    display: inline-block;
-    position: relative;
-  }
   
   .hero-content .underline::after {
     content: "";
