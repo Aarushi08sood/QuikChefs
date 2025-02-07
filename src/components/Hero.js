@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+
 import "./../styles/Hero.css";
 import heroImage from "./../assets/hero-image.jpg";
 
@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="hero-content">
         <h1>
           Elevate Your <br />
-          <span className="underline">Culinary Experience</span>
+          Culinary Experience
         </h1>
         <p>
           Discover the art of fine dining with <strong>Quik Chefs.</strong> Our expert chefs and 
