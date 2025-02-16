@@ -18,7 +18,7 @@ const Navbar = () => {
     };
 
     // Only add scroll event listener if not on the About page
-    if (location.pathname !== "/about" && location.pathname !== "/contact" &&location.pathname!=="/services" &&location.pathname!=="/portfolio" && location.pathname!=="/luxury-wedding-catering" && location.pathname!=="/corporate-gala-dinner" && location.pathname!=="/experience" && location.pathname!=="/terms-and-conditions" && location.pathname!=="/privacy-policy") {
+    if (location.pathname !== "/about" && location.pathname !== "/contact" &&location.pathname!=="/services" &&location.pathname!=="/portfolio" && location.pathname!=="/luxury-wedding-catering" && location.pathname!=="/corporate-gala-dinner" && location.pathname!=="/experience" && location.pathname!=="/terms-and-conditions" && location.pathname!=="/privacy-policy" && location.pathname!=="/career") {
       window.addEventListener("scroll", handleScroll);
     }
 
@@ -38,7 +38,7 @@ const portfolioLogo="https://quikchefs.com/wp-content/uploads/2024/10/WhatsApp_I
   return (
     <nav
       className={`navbar ${scrolled ? "navbar-scrolled" : ""} ${
-        location.pathname === "/about" || location.pathname === "/contact" || location.pathname==="/services" || location.pathname==="/portfolio"  || location.pathname==="/luxury-wedding-catering" || location.pathname==="/corporate-gala-dinner" || location.pathname==="/experience" || location.pathname==="/terms-and-conditions" || location.pathname==="/privacy-policy"? "navbar-about" : ""
+        location.pathname === "/about" || location.pathname === "/contact" || location.pathname==="/services" || location.pathname==="/portfolio"  || location.pathname==="/luxury-wedding-catering" || location.pathname==="/corporate-gala-dinner" || location.pathname==="/experience" || location.pathname==="/terms-and-conditions" || location.pathname==="/privacy-policy" || location.pathname==="/career"? "navbar-about" : ""
         
       }`}
     >
@@ -65,6 +65,8 @@ const portfolioLogo="https://quikchefs.com/wp-content/uploads/2024/10/WhatsApp_I
               ?portfolioLogo
               :location.pathname==="/privacy-policy"
               ?portfolioLogo
+              :location.pathname==="/career"
+              ?portfolioLogo
               : defaultLogo
           } 
           className="attachment-fullage-10290"
@@ -82,8 +84,12 @@ const portfolioLogo="https://quikchefs.com/wp-content/uploads/2024/10/WhatsApp_I
           <a href="/portfolio">Portfolio</a>
         </li>
         <li>
+          <Link to="/career">Career </Link>
+        </li>
+        <li>
           <Link to="/contact">Contact </Link>
         </li>
+        
       </ul>
       {/* <div className="buttons">
         <Button text="Our Services" type="btn-outline" />

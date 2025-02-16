@@ -13,6 +13,7 @@ import About from "./pages/About"; // Import the About page
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
+import Career from "./pages/Career";
 import LuxuryWeddingCatering from "./pages/LuxuryWeddingCatering";
 import CorporateGalaDinner from "./pages/CorporateGalaDinner";
 import Experience from "./pages/Experience";
@@ -45,6 +46,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/career" element={<Career />} />
         <Route
           path="/luxury-wedding-catering"
           element={<LuxuryWeddingCatering />}
