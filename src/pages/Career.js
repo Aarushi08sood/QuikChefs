@@ -11,9 +11,9 @@ const Career = () => {
     const [hasSearched, setHasSearched] = useState(false); // Track if a search has been performed
 
     const mockData = [
-        { title: 'Software Engineer', location: 'Redmond, WA', id: '12345' },
-        { title: 'Product Manager', location: 'San Francisco, CA', id: '67890' },
-        { title: 'Data Scientist', location: 'New York, NY', id: '11223' },
+        { title: 'Senior Chef', location: 'Delhi, India', id: '12345' },
+        { title: 'Chef', location: 'Banglore, India', id: '67890' },
+        { title: 'Waiter', location: 'Delhi, India', id: '11223' },
     ];
 
     const handleSearch = (e) => {
