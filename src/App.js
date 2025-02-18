@@ -19,6 +19,7 @@ import CorporateGalaDinner from "./pages/CorporateGalaDinner";
 import Experience from "./pages/Experience";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ApplyForm from "./pages/ApplyForm";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="/experience" element={<Experience />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/applyform" element={<ApplyForm />} />
       </Routes>
       
     </Router>
