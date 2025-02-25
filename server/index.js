@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const twilio = require('twilio');
 
 const app = express();
 const port = 5002;
@@ -48,6 +49,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Configure Twilio
+const accountSid = 'your-twilio-account-sid';
+const authToken = 'your-twilio-auth-token';
+const client = twilio(accountSid, authToken);
+
 // API endpoint to handle form submission
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
   console.log('Request body:', req.body); // Log the request body
@@ -83,6 +89,15 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
         console.log('Email sent:', info.response);
       }
     });
+
+    // Send WhatsApp notification
+    client.messages.create({
+      body: `A new job application has been submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}`,
+      from: 'whatsapp:+14155238886', // Twilio's WhatsApp number
+      to: 'whatsapp:+your-phone-number' // Your WhatsApp number
+    })
+    .then(message => console.log('WhatsApp message sent:', message.sid))
+    .catch(error => console.error('Error sending WhatsApp message:', error));
 
     res.status(201).send('Application submitted successfully');
   } catch (error) {
