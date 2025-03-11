@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import chefAnjali from "./../assets/chef_anjali.jpg"; // Import team member images
 import rajivMehta from "./../assets/rajiv_mehta.jpg";
 import Footer from "../components/Footer";
+import FAQChatbot from "../components/FAQChatbot";
 
 const About = () => {
   const navigate = useNavigate(); // Initialize useNavigate
@@ -63,7 +64,7 @@ const About = () => {
           </button>
       </section>
     </div>
-
+<FAQChatbot/>
     <Footer/>
     </>
   );

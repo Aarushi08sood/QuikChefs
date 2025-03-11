@@ -1,6 +1,7 @@
 import React from "react";
 import "./Portfolio.css";
 import Footer from "../components/Footer";
+import FAQChatbot from "../components/FAQChatbot";
 
 const Portfolio = () => {
   return (
@@ -85,6 +86,7 @@ const Portfolio = () => {
         </div>
       </section>
     </div>
+    <FAQChatbot/>
     <Footer/>
     </>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import "./Services.css";
 import { useNavigate } from "react-router-dom"; 
 import Footer from "../components/Footer";
+import FAQChatbot from "../components/FAQChatbot";
 
 const Services = () => {
 
@@ -115,6 +116,7 @@ const Services = () => {
           </div>
         </section>
       </div>
+      <FAQChatbot/>
       <Footer />
     </>
   );

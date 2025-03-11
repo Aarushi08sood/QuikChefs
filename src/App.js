@@ -20,6 +20,7 @@ import Experience from "./pages/Experience";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ApplyForm from "./pages/ApplyForm";
+import FAQChatbot from "./components/FAQChatbot";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <ChefStaffing />
               <Chefs />
               <Testimonials />
+              <FAQChatbot/>
               <Footer />
             </>
           }

@@ -4,6 +4,7 @@ import { faSearch, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"; //
 import "./Career.css"; // Import the CSS file
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import FAQChatbot from "../components/FAQChatbot";
 
 const Career = () => {
   const navigate = useNavigate(); // Initialize useNavigate
@@ -223,6 +224,7 @@ const Career = () => {
           </div>
         </section>
       </div>
+      <FAQChatbot/>
       <Footer />
     </>
   );

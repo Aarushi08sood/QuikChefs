@@ -51,7 +51,7 @@ const transporter = nodemailer.createTransport({
 
 // Configure Twilio
 const accountSid = 'your-twilio-account-sid';
-const authToken = 'your-twilio-auth-token';
+const authToken = 'your-twilio-account-token';
 const client = twilio(accountSid, authToken);
 
 // API endpoint to handle form submission
