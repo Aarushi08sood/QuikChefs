@@ -31,7 +31,7 @@ const ApplyForm = () => {
     data.append('cv', formData.cv);
 
     try {
-      const response = await axios.post('https://quik-chefs-seven.vercel.app/api/apply', data, {
+      const response = await axios.post('https://quik-chefs-ldybf3h98-aarushis-projects-856bca9c.vercel.app/applyform/api/apply', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
