@@ -7,13 +7,13 @@ const nodemailer = require('nodemailer');
 const twilio = require('twilio');
 
 const app = express();
-const port = 5002;
+const port = process.env.PORT || 5002;
 
-// Enable CORS for localhost:3000
-app.use(cors({ origin: 'http://localhost:3000' }));
+// Enable CORS for your frontend URL
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 
 // Connect to MongoDB
-mongoose.connect(MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
@@ -42,16 +42,16 @@ const upload = multer({ storage });
 
 // Configure nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Use your email service
+  service: 'gmail',
   auth: {
-    user: 'your-email@gmail.com', // Your email address
-    pass: 'appPassword', // Your email password
+    user: process.env.GMAIL_USER, // Your email address
+    pass: process.env.GMAIL_APP_PASSWORD, // Your email app password
   },
 });
 
 // Configure Twilio
-const accountSid = 'your-twilio-account-sid';
-const authToken = 'your-twilio-account-token';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
 
 // API endpoint to handle form submission
@@ -76,8 +76,8 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
 
     // Send email notification
     const mailOptions = {
-      from: 'your-email@gmail.com',
-      to: 'your-email@gmail.com', // Your email address
+      from: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER, // Your email address
       subject: 'New Job Application Submitted',
       text: `A new job application has been submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}`,
     };
@@ -94,7 +94,7 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
     client.messages.create({
       body: `A new job application has been submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}`,
       from: 'whatsapp:+14155238886', // Twilio's WhatsApp number
-      to: 'whatsapp:+your-phone-number' // Your WhatsApp number
+      to: `whatsapp:${process.env.TWILIO_WHATSAPP_TO}` // Your WhatsApp number
     })
     .then(message => console.log('WhatsApp message sent:', message.sid))
     .catch(error => console.error('Error sending WhatsApp message:', error));
