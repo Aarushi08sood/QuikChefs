@@ -5,6 +5,8 @@ const path = require('path');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const app = express();
 const port = process.env.PORT || 5002;
@@ -23,18 +25,25 @@ const applicationSchema = new mongoose.Schema({
   email: String,
   phone: String,
   position: String,
-  cv: String, // Store the file path or URL
+  cv: String, // Store the file URL
 });
 
 const Application = mongoose.model('Application', applicationSchema);
 
-// Set up multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Set up multer with Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'cv_uploads', // Folder in Cloudinary
+    format: async (req, file) => 'pdf', // Supports other formats like 'png', 'jpg', etc.
+    public_id: (req, file) => `cv_${Date.now()}`, // Unique public ID
   },
 });
 
@@ -60,14 +69,14 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
   console.log('Uploaded file:', req.file); // Log the uploaded file
 
   const { name, email, phone, position } = req.body;
-  const cvPath = req.file.path;
+  const cvUrl = req.file.path; // Cloudinary file URL
 
   const application = new Application({
     name,
     email,
     phone,
     position,
-    cv: cvPath,
+    cv: cvUrl,
   });
 
   try {
@@ -105,9 +114,6 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
     res.status(500).send('Error submitting application');
   }
 });
-
-// Serve uploaded files statically
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
