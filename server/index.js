@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const mongoose = require('mongoose');
-const path = require('path');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
