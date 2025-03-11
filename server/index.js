@@ -11,7 +11,11 @@ const app = express();
 const port = process.env.PORT || 5002;
 
 // Enable CORS for your frontend URL
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow all necessary methods
+  credentials: true, // Allow cookies and credentials
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
