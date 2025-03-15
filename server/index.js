@@ -44,9 +44,9 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'cv_uploads', // Folder in Cloudinary
+    folder: 'resumes', // Folder in Cloudinary
     format: async (req, file) => 'pdf', // Supports other formats like 'png', 'jpg', etc.
-    public_id: (req, file) => `cv_${Date.now()}`, // Unique public ID
+    public_id: (req, file) => `resume_${Date.now()}`, // Unique public ID
   },
 });
 
