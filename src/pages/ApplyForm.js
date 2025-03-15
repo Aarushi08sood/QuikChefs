@@ -11,6 +11,8 @@ const ApplyForm = () => {
     cv: null,
   });
 
+  const [loading, setLoading] = useState(false); // Add loading state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,6 +24,7 @@ const ApplyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true during submission
 
     const data = new FormData();
     data.append('name', formData.name);
@@ -38,9 +41,20 @@ const ApplyForm = () => {
       });
       alert('Application submitted successfully!');
       console.log(response.data);
+
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        position: '',
+        cv: null,
+      });
     } catch (error) {
       console.error('Error submitting application:', error);
       alert('Error submitting application. Please try again.');
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 
@@ -108,8 +122,8 @@ const ApplyForm = () => {
           />
         </div>
 
-        <button type="submit" className="submit-button">
-          Submit Application
+        <button type="submit" className="submit-button" disabled={loading}>
+          {loading ? 'Submitting...' : 'Submit Application'}
         </button>
       </form>
     </div>
