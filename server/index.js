@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables from .env file
+
 const express = require('express');
 const multer = require('multer');
 const mongoose = require('mongoose');
@@ -10,15 +12,12 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const app = express();
 const port = process.env.PORT || 5002;
 
-// Enable CORS for your frontend URL
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow all necessary methods
-  credentials: true, // Allow cookies and credentials
-}));
+// Enable CORS for the specified origin
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
@@ -28,7 +27,7 @@ const applicationSchema = new mongoose.Schema({
   email: String,
   phone: String,
   position: String,
-  cv: String, // Store the file URL
+  cv: String, // Store the Cloudinary file URL
 });
 
 const Application = mongoose.model('Application', applicationSchema);
@@ -46,7 +45,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'resumes', // Folder in Cloudinary
     format: async (req, file) => 'pdf', // Supports other formats like 'png', 'jpg', etc.
-    public_id: (req, file) => `resume_${Date.now()}`, // Unique public ID
+    public_id: (req, file) => `resume-${Date.now()}`, // Unique file name
   },
 });
 
@@ -54,17 +53,15 @@ const upload = multer({ storage });
 
 // Configure nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: process.env.EMAIL_SERVICE,
   auth: {
-    user: process.env.GMAIL_USER, // Your email address
-    pass: process.env.GMAIL_APP_PASSWORD, // Your email app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 // Configure Twilio
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = twilio(accountSid, authToken);
+const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 // API endpoint to handle form submission
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
@@ -74,22 +71,23 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
   const { name, email, phone, position } = req.body;
   const cvUrl = req.file.path; // Cloudinary file URL
 
-  const application = new Application({
-    name,
-    email,
-    phone,
-    position,
-    cv: cvUrl,
-  });
-
   try {
+    // Save application data to MongoDB
+    const application = new Application({
+      name,
+      email,
+      phone,
+      position,
+      cv: cvUrl, // Store the Cloudinary file URL
+    });
+
     await application.save();
     console.log('Application saved to MongoDB');
 
     // Send email notification
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // Your email address
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Your email address
       subject: 'New Job Application Submitted',
       text: `A new job application has been submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}`,
     };
@@ -105,16 +103,16 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
     // Send WhatsApp notification
     client.messages.create({
       body: `A new job application has been submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPosition: ${position}`,
-      from: 'whatsapp:+14155238886', // Twilio's WhatsApp number
-      to: `whatsapp:${process.env.TWILIO_WHATSAPP_TO}` // Your WhatsApp number
+      from: process.env.TWILIO_WHATSAPP_NUMBER, // Twilio's WhatsApp number
+      to: process.env.YOUR_WHATSAPP_NUMBER, // Your WhatsApp number
     })
-    .then(message => console.log('WhatsApp message sent:', message.sid))
-    .catch(error => console.error('Error sending WhatsApp message:', error));
+      .then((message) => console.log('WhatsApp message sent:', message.sid))
+      .catch((error) => console.error('Error sending WhatsApp message:', error));
 
-    res.status(201).send('Application submitted successfully');
+    res.status(201).json({ message: 'Application submitted successfully!', cvUrl });
   } catch (error) {
     console.error('Error saving application:', error);
-    res.status(500).send('Error submitting application');
+    res.status(500).json({ error: 'Error submitting application' });
   }
 });
 
