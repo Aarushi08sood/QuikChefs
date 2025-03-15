@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 5002;
 
 // Enable CORS for the specified origin
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:3000' }));
 app.use(express.json()); // Parse JSON request bodies
 
 // Connect to MongoDB
@@ -68,8 +68,14 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
   console.log('Request body:', req.body); // Log the request body
   console.log('Uploaded file:', req.file); // Log the uploaded file
 
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+
   const { name, email, phone, position } = req.body;
   const cvUrl = req.file.path; // Cloudinary file URL
+
+  console.log('CV URL:', cvUrl); // Log the Cloudinary URL
 
   try {
     // Save application data to MongoDB
